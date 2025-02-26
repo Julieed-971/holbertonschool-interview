@@ -71,17 +71,9 @@ void topple_grid(int grid1[3][3])
 	{
 		for (j = 0; j < 3; j++)
 		{
-			if (grid1[i][j] > 3)
-			{
-				topple[i][j] = 1;
-			}
-			else
-			{
-				topple[i][j] = 0;
-			}
+			topple[i][j] = (grid1[i][j] > 3) ? 1 : 0;
 		}
 	}
-
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
