@@ -8,6 +8,7 @@
 int slide_line(int *line, size_t size, int direction);
 void slide_left(int *line, size_t size);
 void slide_right(int *line, size_t size);
-void merge_values(int *line, size_t size);
+void merge_left(int *line, size_t size);
+void merge_right(int *line, size_t size);
 
 #endif

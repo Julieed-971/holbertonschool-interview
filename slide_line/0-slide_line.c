@@ -15,14 +15,15 @@
 
 int slide_line(int *line, size_t size, int direction)
 {
-	merge_values(line, size);
 	if (direction == SLIDE_LEFT)
 	{
+		merge_left(line, size);
 		slide_left(line, size);
 		return (1);
 	}
 	else if (direction == SLIDE_RIGHT)
 	{
+		merge_right(line, size);
 		slide_right(line, size);
 		return (1);
 	}
@@ -84,12 +85,12 @@ void slide_right(int *line, size_t size)
 }
 
 /**
- * merge_values -  merges equal values in an array of integers
+ * merge_left -  merges equal values in an array of integers
  * @line: pointer to an array of integer
  * @size: size of the array
  */
 
-void merge_values(int *line, size_t size)
+void merge_left(int *line, size_t size)
 {
 	size_t i, j;
 
@@ -113,5 +114,38 @@ void merge_values(int *line, size_t size)
 			}
 			j++;
 		}
+	}
+}
+
+/**
+ * merge_right -  merges equal values in an array of integers
+ * @line: pointer to an array of integer
+ * @size: size of the array
+ */
+
+void merge_right(int *line, size_t size)
+{
+	int i, j;
+
+	for (i = size - 1; i > 0; i--)
+	{
+		if (line[i] == 0)
+		{
+			continue;
+		}
+		j = i - 1;
+		while (j >= 0)
+		{
+			if (line[j] != 0)
+			{
+				if (line[i] == line[j])
+				{
+					line[i] += line[j];
+					line[j] = 0;
+				}
+			}
+			break;
+		}
+		j--;
 	}
 }
