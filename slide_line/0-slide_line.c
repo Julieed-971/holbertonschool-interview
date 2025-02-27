@@ -17,12 +17,14 @@ int slide_line(int *line, size_t size, int direction)
 {
 	if (direction == SLIDE_LEFT)
 	{
+		slide_left(line, size);
 		merge_left(line, size);
 		slide_left(line, size);
 		return (1);
 	}
 	else if (direction == SLIDE_RIGHT)
 	{
+		slide_right(line, size);
 		merge_right(line, size);
 		slide_right(line, size);
 		return (1);
