@@ -7,7 +7,20 @@ the goal is to check if all boxes can be unlocked starting from the first box.
 
 def canUnlockAll(boxes):
     """Determines if all the boxes of a list of list can be open"""
+    
+    # list of keys to be found, excluding box 0 as it's already unlocked
+    boxes_keys = [i for i in range(1, len(boxes))]
+ 
+    # iterate over the boxes
     for i in range(len(boxes) - 1):
-        if i + 1 not in boxes[i]:
-            return False
-    return True
+        
+        # iterate over box's list
+        for key in boxes[i]:
+            
+            # check for the keys inside the box
+            if key in boxes_keys:
+                # if found remove from the list of boxes keys
+                boxes_keys.remove(key)
+
+    # return True if no unlock boxes remain, otherwise False
+    return len(boxes_keys) == 0
