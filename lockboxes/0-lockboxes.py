@@ -8,25 +8,30 @@ the goal is to check if all boxes can be unlocked starting from the first box.
 def canUnlockAll(boxes):
     """Determines if all the boxes of a list of list can be open"""
     
-    # list of keys to be found, excluding box 0 as it's already unlocked
-    locked_boxes = [i for i in range(1, len(boxes))]
+    # List of keys to be found, excluding box 0 as it's already unlocked
+    boxes_to_unlock = set(range(1, len(boxes)))
 
-    # set a boolean to check if all the boxes are opened
-    all_boxes_are_opened = True
+    # Found keys
+    found_keys = set(boxes[0])
+
+    # Iterate until no new boxes are found
+    new_keys_found = True
     
-    # iterate over the boxes
-    for i in range(len(boxes) - 1):
+    while new_keys_found:
         
-        # iterate over box's list
-        for key in boxes[i]:
-            
-            # check for the keys inside the box
-            if key in locked_boxes:
-                # if found remove from the list of boxes keys
-                locked_boxes.remove(key)
-
-    # check if unlock boxes remains
-    if len(locked_boxes) != 0:
-        all_boxes_are_opened = False
+        new_keys_found = False
+        # Iterate over keys found so far
+        for key in list(found_keys):
+            # Check if key corresponds to an unlocked box
+            if key in boxes_to_unlock:
+                # Unlock the box and add its keys
+                found_keys.update(boxes[key])
+                boxes_to_unlock.remove(key)
+                new_keys_found = True
+        
+        # If no new keys are found, stop
+        if not new_keys_found:
+            break
     
-    return all_boxes_are_opened
+    # Return True if all boxes are unlocked
+    return len(boxes_to_unlock) == 0
