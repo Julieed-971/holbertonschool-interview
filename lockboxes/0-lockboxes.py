@@ -9,8 +9,11 @@ def canUnlockAll(boxes):
     """Determines if all the boxes of a list of list can be open"""
     
     # list of keys to be found, excluding box 0 as it's already unlocked
-    boxes_keys = [i for i in range(1, len(boxes))]
- 
+    locked_boxes = [i for i in range(1, len(boxes))]
+
+    # set a boolean to check if all the boxes are opened
+    all_boxes_are_opened = True
+    
     # iterate over the boxes
     for i in range(len(boxes) - 1):
         
@@ -18,9 +21,12 @@ def canUnlockAll(boxes):
         for key in boxes[i]:
             
             # check for the keys inside the box
-            if key in boxes_keys:
+            if key in locked_boxes:
                 # if found remove from the list of boxes keys
-                boxes_keys.remove(key)
+                locked_boxes.remove(key)
 
-    # return True if no unlock boxes remain, otherwise False
-    return len(boxes_keys) == 0
+    # check if unlock boxes remains
+    if len(locked_boxes) != 0:
+        all_boxes_are_opened = False
+    
+    return all_boxes_are_opened
