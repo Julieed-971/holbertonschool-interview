@@ -15,7 +15,7 @@ def canUnlockAll(boxes):
     # Found keys
     found_keys = set(boxes[0])
 
-    # Iterate until no new boxes are found
+    # Iterate until no new keys are found
     new_keys_found = True
 
     while new_keys_found:
