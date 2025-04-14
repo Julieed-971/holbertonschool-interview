@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""_summary_
+"""
+This module contains a function called `island_parameter` that calculate 
+the perimeter of an "island" represented by a grid, a list of list of integer
+0 representing water and 1 representing land
 """
 
 
@@ -20,26 +23,18 @@ def island_perimeter(grid):
                 continue
             # if cell is land
             if grid[i][j] == 1:
-                # for each border next to water, add 1 to the perimeter
-                # check if cell is not in the first or last row
-                if i != 0 and i != len(grid) - 1:
-                    if grid[i - 1][j] == 0:
-                        perimeter += 1
-                    if grid[i + 1][j] == 0:
-                        perimeter += 1
-                if j != 0 and j != len(grid[i]) - 1:
-                    if grid[i][j - 1] == 0:
-                        perimeter += 1
-                    if grid[i][j + 1] == 0:
-                        perimeter += 1
-                # if in the first or last row, add one to the perimeter
-                if i == 0:
-                    perimeter += 1
-                if i == len(grid) - 1:
-                    perimeter += 1
-                # if in the first or last column, add one to the perimeter
-                if j == 0 :
-                    perimeter += 1
-                if j == len(grid[i]) - 1:
-                    perimeter += 1
+                perimeter += 4
+                # for each surrounding cell of land, remove 1 to the perimeter
+                if i > 0:
+                    if grid[i - 1][j] == 1:
+                        perimeter -= 1
+                if j > 0:
+                    if grid[i][j - 1] == 1:
+                        perimeter -= 1
+                if i < len(grid) - 1:
+                    if grid[i + 1][j] == 1:
+                        perimeter -= 1
+                if j < len(grid[i]) - 1:
+                    if grid[i][j + 1] == 1:
+                        perimeter -= 1                    
     return perimeter
