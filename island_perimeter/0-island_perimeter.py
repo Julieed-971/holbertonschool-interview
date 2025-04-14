@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module contains a function called `island_parameter` that calculate 
+This module contains a function called `island_parameter` that calculate
 the perimeter of an "island" represented by a grid, a list of list of integer
 0 representing water and 1 representing land
 """
@@ -36,5 +36,5 @@ def island_perimeter(grid):
                         perimeter -= 1
                 if j < len(grid[i]) - 1:
                     if grid[i][j + 1] == 1:
-                        perimeter -= 1                    
+                        perimeter -= 1
     return perimeter
