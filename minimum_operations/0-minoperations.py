@@ -4,7 +4,7 @@ needed to result in exactly n H characters in the file"""
 
 
 def minOperations(n):
-    if n == 1:
+    if n < 2:
         return 0
     is_prime = True
     for i in range(2, n):
