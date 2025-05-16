@@ -27,7 +27,6 @@ int is_palindrome(listint_t **head)
 
 	/* Copy linked list in an array */
 	int list_copy[len];
-
 	current = *head;
 	int i = 0;
 
@@ -35,9 +34,8 @@ int is_palindrome(listint_t **head)
 	{
 		list_copy[i] = current->n;
 		current = current->next;
+		i++;
 	}
-	i++;
-
 	int start = 0;
 	int end = len - 1;
 	int is_palindrome = 1;
@@ -49,6 +47,8 @@ int is_palindrome(listint_t **head)
 			is_palindrome = 0;
 			return (is_palindrome);
 		}
+		start++;
+		end--;
 	}
 	return (is_palindrome);
 }
