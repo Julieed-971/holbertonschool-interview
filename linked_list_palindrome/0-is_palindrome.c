@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "lists.h"
+#include "linked_lists.c"
 
 /**
  * is_palindrome - check if a linked list composed of integer is a palindrome
