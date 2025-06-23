@@ -10,7 +10,6 @@ def validUTF8(data):
         # Get the binary string representation (8 least significant
         # bits) of each integer
         binary_num = format(num, '#010b')[-8:]
-        print(binary_num)
         # Check if beginning of a process
         if n_bytes == 0:
             # Get number of 1 at the beginning of the string
