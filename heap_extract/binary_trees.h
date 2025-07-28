@@ -1,5 +1,5 @@
-#ifndef BINARY_TREE_H
-#define BINARY_TREE_H
+#ifndef BINARY_TREES_H
+#define BINARY_TREES_H
 
 /**
  * struct binary_tree_s - Binary tree node
@@ -49,4 +49,4 @@ int heap_extract(heap_t **root);
 void binary_tree_print(const binary_tree_t *);
 void heapify_down(heap_t *root_node);
 
-#endif /* BINARY_TREE_H */
+#endif /* BINARY_TREES_H */
