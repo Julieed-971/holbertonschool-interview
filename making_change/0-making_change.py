@@ -13,12 +13,13 @@ def makeChange(coins, total):
 
     coins = sorted(coins, reverse=True)
 
-    for i in range(len(coins)):
-        if total / coins[i] >= 1:
-            change.append(round(total / coins[i]))
-            total = total - (change[i] * coins[i])
-        elif total / coins[i] < 1:
-            i += 1
+    for coin in coins:
+        if total >= coin:
+            num = round(total / coin)
+            change.append(num)
+            total -= num * coin
+        elif total / coin < 1:
+            continue
 
     if total != 0:
         return -1
