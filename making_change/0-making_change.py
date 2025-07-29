@@ -7,6 +7,8 @@ def makeChange(coins, total):
     """Determine the fewest number of coins
     needed to meet a given amount total"""
 
+    if total <= 0:
+        return 0
     # Initialize a dp array to length of amount + 1 (going from 0 to total)
     # with default value for all element to amount + 1 = max value
     dp = [total + 1] * (total + 1)
