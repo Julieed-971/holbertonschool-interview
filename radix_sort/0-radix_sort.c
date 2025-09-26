@@ -66,7 +66,7 @@ void counting_sort_by_digit(int *array, size_t size, int exponent)
  */
 void radix_sort(int *array, size_t size)
 {
-	if (size > 2)
+	if (size >= 2)
 	{
 		int max = get_max(array, size);
 
