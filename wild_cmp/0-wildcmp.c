@@ -12,7 +12,7 @@
 
 int wildcmpRecursion(char *s1, char *s2, int n, int m)
 {
-	/* Check if both strings are empty*/
+	/* Check for end of both strings */
 	if (s1[n] == '\0' && s2[m] == '\0')
 	{
 		return (1);
@@ -26,11 +26,18 @@ int wildcmpRecursion(char *s1, char *s2, int n, int m)
 		}
 		return (0);
 	}
+    /* Pattern is empty but text is not */
+	if (s2[m] == '\0')
+	{
+		return (0);
+	}
+	/* If pattern has '*', try matching zero or more characters */
 	if (s2[m] == '*')
 	{
 		return (wildcmpRecursion(s1, s2, n, m + 1) ||
 				wildcmpRecursion(s1, s2, n + 1, m));
 	}
+	/* If characters match, move both indices forward */
 	if (s1[n] == s2[m])
 	{
 		return (wildcmpRecursion(s1, s2, n + 1, m + 1));
