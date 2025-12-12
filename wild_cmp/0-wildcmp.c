@@ -23,8 +23,8 @@ int wildcmpRecursion(char *s1, char *s2, int n, int m)
 		if (s2[m] == '*')
 		{
 			return (wildcmpRecursion(s1, s2, n, m + 1));
-		return (0);
 		}
+		return (0);
 	}
 	if (s2[m] == '*')
 	{
