@@ -37,6 +37,7 @@ int wildcmpRecursion(char *s1, char *s2, int n, int m)
 	}
 	return (0);
 }
+
 /**
  * wildcmp - compares two strings
  * @s1: pointer to the first string
