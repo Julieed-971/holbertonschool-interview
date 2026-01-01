@@ -72,4 +72,6 @@ if __name__ == "__main__":
             if line_number % 10 == 0:
                 print_stats()
     except KeyboardInterrupt:
+        pass
+    finally:
         print_stats()
