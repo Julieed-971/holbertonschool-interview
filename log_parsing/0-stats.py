@@ -38,25 +38,8 @@ if __name__ == "__main__":
             line_number += 1
 
             # Check input line format with regex
-            ip_pattern_regex = (
-                r'(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}'
-                r'(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)'
-            )
-            date_pattern_regex = (
-                r'(?:\d{4}-(?:0[1-9]|1[0-2])-(?:0[0-9]|[12][0-9]|3[01])'
-                r'\s(?:0[0-9]|1[0-9]|2[0-3])\:(?:0[0-9]|[0-5][0-9])'
-                r'\:(?:0[0-9]|[0-5][0-9])\.\d{6})'
-            )
-            status = r'(\d+)'
-            size = r'(\d+)'
-            request = r'"[^"]*"'
-            full_pattern = (
-                f"{ip_pattern_regex} - "
-                f"\\[{date_pattern_regex}\\] "
-                f"{request} "
-                f"{status} {size}"
-            )
-            match = re.search(full_pattern, line)
+            pattern = r'\S+ - \[.*?\] ".*" (\d+) (\d+)'
+            match = re.search(pattern, line)
             if match:
                 line_status_code = int(match.group(1))
                 line_size = int(match.group(2))
