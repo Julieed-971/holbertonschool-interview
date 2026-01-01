@@ -38,7 +38,7 @@ if __name__ == "__main__":
             line_number += 1
 
             # Check input line format with regex
-            pattern = r'\S+ - \[.*?\] ".*" (\d+) (\d+)'
+            pattern = r'.*?(\d+) (\d+)$'
             match = re.search(pattern, line)
             if match:
                 line_status_code = int(match.group(1))
