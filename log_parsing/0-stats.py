@@ -49,13 +49,13 @@ if __name__ == "__main__":
             )
             status = r'(\d+)'
             size = r'(\d+)'
+            request = r'"GET /.* HTTP/1.1"'
             full_pattern = (
                 f"{ip_pattern_regex} - "
                 f"\\[{date_pattern_regex}\\] "
-                f'"GET /projects/260 HTTP/1.1" '
+                f"{request} "
                 f"{status} {size}"
             )
-
             match = re.search(full_pattern, line)
             if match:
                 line_status_code = int(match.group(1))
