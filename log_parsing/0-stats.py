@@ -49,7 +49,7 @@ if __name__ == "__main__":
             )
             status = r'(\d+)'
             size = r'(\d+)'
-            request = r'"GET /.* HTTP/1.1"'
+            request = r'"(?:GET|POST|PUT|DELETE|HEAD) /.* HTTP/1\.1"'
             full_pattern = (
                 f"{ip_pattern_regex} - "
                 f"\\[{date_pattern_regex}\\] "
