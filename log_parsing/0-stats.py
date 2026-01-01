@@ -38,11 +38,17 @@ if __name__ == "__main__":
             line_number += 1
 
             # Check input line format with regex
-            pattern = r'.*?(\d+) (\d+)$'
+            pattern = r'.*?(\S+) (\S+)$'
             match = re.search(pattern, line)
             if match:
-                line_status_code = int(match.group(1))
-                line_size = int(match.group(2))
+                try:
+                    line_status_code = int(match.group(1))
+                except ValueError:
+                    line_status_code = None
+                try:
+                    line_size = int(match.group(2))
+                except ValueError:
+                    line_size = None
                 # If status code exist in status_code keys,
                 # increment status_code corresponding key
                 if line_status_code in status_code:
