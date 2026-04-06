@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#include "0-menger.h"
+#include "menger.h"
 
 /**
  * is_hash - check if the character to print should be an hash or not
