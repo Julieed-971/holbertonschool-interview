@@ -48,7 +48,6 @@ int is_hash(int size, int i, int j)
 /**
  * print_sponge - print sponge
  *
- * @level: level of the sponge to print
  * @size: size of the sponge to print
  */
 
