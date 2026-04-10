@@ -17,6 +17,7 @@ except (ValueError):
     print("N must be a number")
     sys.exit(1)
 
+
 def is_safe(board, row, col):
     # Check against all previously placed queens (rows 0 to row-1)
     for previous_row in range(row):
@@ -33,6 +34,7 @@ def is_safe(board, row, col):
     # If no conflicts found, it's safe
     return True
 
+
 def solve_nqueens(board, row, n, solutions):
     if row == n:
         solutions.append([[i, board[i]] for i in range(n)])
@@ -41,6 +43,7 @@ def solve_nqueens(board, row, n, solutions):
         if is_safe(board, row, col):
             board[row] = col
             solve_nqueens(board, row + 1, n, solutions)
+
 
 board = [0] * n
 solutions = []
