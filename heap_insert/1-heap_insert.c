@@ -88,13 +88,14 @@ heap_t *heap_insert(heap_t **root, int value)
 {
 	heap_t *new_node = NULL;
 	heap_t *current_node = NULL;
-	queue *queue = malloc(sizeof(queue));
+	queue *queue;
 
 	if (*root == NULL)
 	{
 		*root = binary_tree_node(NULL, value);
 		return (*root);
 	}
+	queue = malloc(sizeof(queue));
 	if (queue == NULL)
 	{
 		return (NULL);
