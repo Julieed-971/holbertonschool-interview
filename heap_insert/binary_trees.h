@@ -18,8 +18,38 @@ struct binary_tree_s
 };
 
 typedef struct binary_tree_s binary_tree_t;
+typedef struct binary_tree_s heap_t;
 
-void binary_tree_print(const binary_tree_t *);
+/**
+ * struct queue_node - queue node
+ *
+ * @tree_node: Binary tree node
+ * @next: pointer to the next queue_node
+ */
+typedef struct queue_node
+{
+	heap_t *tree_node;
+	struct queue_node *next;
+} queue_node;
+
+/**
+ * struct queue - queue
+ *
+ * @front: first element in the queue
+ * @rear: last element in the queue
+ */
+typedef struct queue
+{
+	queue_node *front;
+	queue_node *rear;
+} queue;
+
+
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
+void binary_tree_print(const binary_tree_t *);
+void enqueue(queue *heap_queue, heap_t *tree_node);
+heap_t *dequeue(queue *heap_queue);
+void heapify_up(heap_t *last_node);
+heap_t *heap_insert(heap_t **root, int value);
 
 #endif /* BINARY_TREES_H */
