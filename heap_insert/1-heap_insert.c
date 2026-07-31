@@ -98,7 +98,7 @@ heap_t *heap_insert(heap_t **root, int value)
 		*root = binary_tree_node(NULL, value);
 		return (*root);
 	}
-	q = malloc(sizeof(q));
+	q = malloc(sizeof(queue));
 	if (q == NULL)
 	{
 		return (NULL);
