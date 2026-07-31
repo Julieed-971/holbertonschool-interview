@@ -49,7 +49,7 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 void binary_tree_print(const binary_tree_t *);
 void enqueue(queue *heap_queue, heap_t *tree_node);
 heap_t *dequeue(queue *heap_queue);
-void heapify_up(heap_t *last_node);
+heap_t *heapify_up(heap_t *last_node);
 heap_t *heap_insert(heap_t **root, int value);
 
 #endif /* BINARY_TREES_H */

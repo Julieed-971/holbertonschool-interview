@@ -59,8 +59,10 @@ heap_t *dequeue(queue *heap_queue)
  * heapify_up - restore the max heap property
  *
  * @last_node: current root_node to start heapifying from
+ *
+ * Return: Pointer to the node where the value finally resides
  */
-void heapify_up(heap_t *last_node)
+heap_t *heapify_up(heap_t *last_node)
 {
 	heap_t *current_node = last_node;
 	int tmp = 0;
@@ -73,6 +75,7 @@ void heapify_up(heap_t *last_node)
 		current_node->n = tmp;
 		current_node = current_node->parent;
 	}
+	return (current_node);
 }
 
 /**
@@ -123,6 +126,6 @@ heap_t *heap_insert(heap_t **root, int value)
 	}
 	free(queue);
 	if (new_node)
-		heapify_up(new_node);
+		new_node = heapify_up(new_node);
 	return (new_node);
 }
