@@ -91,40 +91,40 @@ heap_t *heap_insert(heap_t **root, int value)
 {
 	heap_t *new_node = NULL;
 	heap_t *current_node = NULL;
-	queue *queue;
+	queue *q;
 
 	if (*root == NULL)
 	{
 		*root = binary_tree_node(NULL, value);
 		return (*root);
 	}
-	queue = malloc(sizeof(queue));
-	if (queue == NULL)
+	q = malloc(sizeof(q));
+	if (q == NULL)
 	{
 		return (NULL);
 	}
-	queue->front = NULL;
-	queue->rear = NULL;
-	enqueue(queue, *root);
-	while (queue->front != NULL)
+	q->front = NULL;
+	q->rear = NULL;
+	enqueue(q, *root);
+	while (q->front != NULL)
 	{
-		current_node = dequeue(queue);
+		current_node = dequeue(q);
 		if (current_node->left == NULL)
 		{
 			current_node->left = binary_tree_node(current_node, value);
 			new_node = current_node->left;
 			break;
 		}
-		enqueue(queue, current_node->left);
+		enqueue(q, current_node->left);
 		if (current_node->right == NULL)
 		{
 			current_node->right = binary_tree_node(current_node, value);
 			new_node = current_node->right;
 			break;
 		}
-		enqueue(queue, current_node->right);
+		enqueue(q, current_node->right);
 	}
-	free(queue);
+	free(q);
 	if (new_node)
 		new_node = heapify_up(new_node);
 	return (new_node);
